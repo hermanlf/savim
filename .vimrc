@@ -31,7 +31,7 @@ if VimVer() > 702
     set cursorcolumn=85
     set relativenumber
     set undofile
-    set undodir=/tmp
+    set undodir=~/.vim/undo
 endif
 
 
@@ -51,9 +51,9 @@ set encoding=utf-8
 " hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 syntax on
-colorscheme molokai
-
 set t_Co=256                                " enable all 256 console term colors
+colorscheme molokai                         " molokair or mustang
+
 set gfn=Monospace\ 10
 set visualbell
 set cursorline
