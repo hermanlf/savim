@@ -30,6 +30,8 @@ endfunc
 if VimVer() > 702
     set cursorcolumn=85
     set relativenumber
+    set undofile
+    set undodir=/tmp
 endif
 
 
