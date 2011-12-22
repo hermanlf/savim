@@ -5,6 +5,35 @@ filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reload the .vimrc file immediately after writing to it
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set System Type (mac, linux or windows) & Vim Version
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+func! MySys()
+    return "linux"
+endfunc
+
+func! VimVer()
+    return "v:version"
+endfunc
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Define Platform & Vim Version Specific Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if VimVer() > 702
+    set cursorcolumn=85
+    set relativenumber
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
@@ -15,6 +44,10 @@ set encoding=utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The two lines below highlight current cursor pos in bright RED
+" hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
 syntax on
 colorscheme molokai
 
@@ -22,6 +55,7 @@ set t_Co=256                                " enable all 256 console term colors
 set gfn=Monospace\ 10
 set visualbell
 set cursorline
+set cursorcolumn
 set ttyfast
 set ruler
 set laststatus=2
@@ -41,6 +75,10 @@ set softtabstop=4
 set expandtab
 set autoindent
 set backspace=indent,eol,start
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
