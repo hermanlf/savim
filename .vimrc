@@ -78,9 +78,14 @@ set expandtab
 set autoindent
 set backspace=indent,eol,start
 
-set wrap
-set textwidth=79
 set formatoptions=qrn1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Text Wrapping (disabled - code looks FUGLY when wrapped)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set wrap
+"set textwidth=79
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
