@@ -13,7 +13,8 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set System Type (mac, linux or windows) & Vim Version
+" Set System Type (mac, linux or windows) ,Vim Version and Color Scheme
+" Available Themes: molokai, peaksea, mustang, jellybeans, zenburn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 func! MySys()
     return "linux"
@@ -21,6 +22,10 @@ endfunc
 
 func! VimVer()
     return "v:version"
+endfunc
+
+func! MyTheme()
+    return "molokai"
 endfunc
 
 
@@ -52,7 +57,20 @@ set encoding=utf-8
 
 syntax on
 set t_Co=256                                " enable all 256 console term colors
-colorscheme molokai                         " molokair or mustang
+
+if MyTheme() == "molokai"
+    colorscheme molokai
+elseif MyTheme() == "peaksea"
+    set background=dark
+    colorscheme peaksea
+elseif MyTheme() == "mustang"
+    colorscheme mustang
+elseif MyTheme() == "jellybeans"
+    colorscheme jellybeans
+elseif MyTheme() == "zenburn"
+    let g:zenburn_high_Contrast=1
+    colorscheme zenburn
+endif
 
 set gfn=Monospace\ 10
 set visualbell
