@@ -1,7 +1,36 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SOME IMPORTANT NOTES:                                                       "
+" spf13 @ http://vim.spf13.com/ provides The Ultimate Vim Distribution        "
+" tomasr @ https://github.com/tomasr/molokai Keeps the molokai them updated   "
+" amix @ http://amix.dk/ Original source of inspiration for awesome vim       "
+" Ralp Levien @ http://www.google.com/webfonts/specimen/Inconsolata font      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible                            " must be first line
 filetype off
 call pathogen#runtime_append_all_bundles()  " load up all plugins in bundle
 call pathogen#helptags()                    " load helptags in bundle plugins 
 filetype plugin indent on
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set System Type (mac, linux or windows) ,Vim Version and Color Scheme
+" Available Themes: molokai, peaksea, mustang, jellybeans, zenburn
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+func! VimVer()
+    return "v:version"
+endfunc
+
+func! MyTheme()
+    return "molokai"
+endfunc
+
+if has('win32') || has('win64')
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+    set gfn=Consolas:h10
+elseif has('unix')
+    set gfn=Monospace\ 10
+    set shell=/bin/bash
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -13,38 +42,21 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set System Type (mac, linux or windows) ,Vim Version and Color Scheme
-" Available Themes: molokai, peaksea, mustang, jellybeans, zenburn
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-func! MySys()
-    return "linux"
-endfunc
-
-func! VimVer()
-    return "v:version"
-endfunc
-
-func! MyTheme()
-    return "molokai"
-endfunc
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Define Platform & Vim Version Specific Options
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if VimVer() > 702
     set cursorcolumn=85
     set relativenumber
     set undofile
-    set undodir=~/.vim/undo
+    set undodir=~/.vim/.vimundo//
+    set backupdir=~/.vim/.vimbackup//
+    set directory=~/.vim/.vimswap//
 endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
-set shell=/bin/bash
 set encoding=utf-8
 
 
@@ -72,7 +84,6 @@ elseif MyTheme() == "zenburn"
     colorscheme zenburn
 endif
 
-set gfn=Monospace\ 10
 set visualbell
 set cursorline
 set cursorcolumn

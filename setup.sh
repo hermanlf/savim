@@ -1,10 +1,10 @@
 #!/bin/bash
 
 symlink="$HOME/.vimrc"
-vimuseonly="$HOME/.vim/vimuseonly"
-undo="$vimuseonly/undo"
-tmp="$vimuseonly/tmp"
-backup="$vimuseonly/backup"
+vimuseonly="$HOME/.vim"
+undo="$vimuseonly/.vimundo"
+tmp="$vimuseonly/.vimswap"
+backup="$vimuseonly/.vimbackup"
 workdone=false
 
 echo ' '
