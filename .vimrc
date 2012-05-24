@@ -1,19 +1,17 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SOME IMPORTANT NOTES:                                                       "
-" spf13 @ http://vim.spf13.com/ provides The Ultimate Vim Distribution        "
-" tomasr @ https://github.com/tomasr/molokai Keeps the molokai them updated   "
-" amix @ http://amix.dk/ Original source of inspiration for awesome vim       "
-" Ralp Levien @ http://www.google.com/webfonts/specimen/Inconsolata font      "
+" SOME IMPORTANT NOTES:                                                       
+" spf13 @ http://vim.spf13.com/ provides The Ultimate Vim Distribution        
+" tomasr @ https://github.com/tomasr/molokai Keeps the molokai them updated   
+" amix @ http://amix.dk/ Original source of inspiration for awesome vim       
+" Ralp Levien @ http://www.google.com/webfonts/specimen/Inconsolata font      
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible                            " must be first line
 filetype off
-call pathogen#runtime_append_all_bundles()  " load up all plugins in bundle
-call pathogen#helptags()                    " load helptags in bundle plugins 
 filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set System Type (mac, linux or windows) ,Vim Version and Color Scheme
+" Set System Type (mac, linux or windows) ,Vim Version, Color Scheme and paths
 " Available Themes: molokai, peaksea, mustang, jellybeans, zenburn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 func! VimVer()
@@ -31,6 +29,15 @@ elseif has('unix')
     set gfn=Monospace\ 10
     set shell=/bin/bash
 endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Call pathogen to load up all plugins in bundle. This location is important. 
+" Pathogen needs to be loaded after setting runtimepath to ensure correct     
+" behaviour on windows.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call pathogen#infect()
+call pathogen#helptags()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
