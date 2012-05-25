@@ -54,11 +54,53 @@ endif
 if VimVer() > 702
     set cursorcolumn=85
     set relativenumber
-    set undofile
-    set undodir=~/.vim/.vimundo//
-    set backupdir=~/.vim/.vimbackup//
-    set directory=~/.vim/.vimswap//
 endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Initialize directories for swap, undo, backup and views
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! InitializeDirectories()
+    let separator = "."
+    let parent = $HOME
+    let vimdir = '.vim'
+    let prefix = '.vim'
+
+    if VimVer() > 703
+        set undofile
+        set undolevels=1000
+        set undoreload=10000
+        let dir_list = { 
+                    \ 'backup': 'backupdir', 
+                    \ 'views': 'viewdir', 
+                    \ 'swap': 'directory',
+                    \ 'undo': 'undodir' }
+    else
+        let dir_list = { 
+                    \ 'backup': 'backupdir', 
+                    \ 'views': 'viewdir', 
+                    \ 'swap': 'directory' }
+    endif    
+
+
+    for [dirname, settingname] in items(dir_list)
+        let directory = parent . '/' . vimdir . '/' . prefix . dirname . "/"
+        if exists("*mkdir")
+            if !isdirectory(directory)
+                call mkdir(directory)
+            endif
+        endif
+        if !isdirectory(directory)
+            echo "Warning: Unable to create backup directory: " . directory
+            echo "Try: mkdir -p " . directory
+        else  
+            let directory = substitute(directory, " ", "\\\\ ", "")
+            exec "set " . settingname . "=" . directory . "//"
+        endif
+    endfor
+endfunction
+call InitializeDirectories()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,11 +149,12 @@ set wildmode=list:longest
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent
+set tabstop=4                               " an indentation every 4 columns
+set shiftwidth=4                            " use indents of 4 spaces
+set softtabstop=4                           " let backspace deleted inden
+set expandtab                               " tabs are spaces, not tabs
+set autoindent                              " indent at same level of previous
+set pastetoggle=<F12>                       " (sane indentation on pastes)
 set backspace=indent,eol,start
 
 set formatoptions=qrn1
@@ -137,4 +180,3 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
-

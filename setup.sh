@@ -5,6 +5,8 @@ vimuseonly="$HOME/.vim"
 undo="$vimuseonly/.vimundo"
 tmp="$vimuseonly/.vimswap"
 backup="$vimuseonly/.vimbackup"
+view="$vimuseonly/.vimviews"
+
 workdone=false
 
 echo ' '
@@ -45,6 +47,12 @@ fi
 if [ ! -d "$backup" ]; then
     echo "creating backup directory $backup"
     mkdir -p "$backup"
+    workdone=true
+fi
+
+if [ ! -d "$view" ]; then
+    echo "creating backup directory $view"
+    mkdir -p "$view"
     workdone=true
 fi
 
