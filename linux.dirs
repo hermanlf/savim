@@ -1,3 +1,0 @@
-:set directory=$HOME/.vim/.vimswap
-:set backupdir=$HOME/.vim/.vimbackup
-:set viewdir=$HOME/.vim/.vimviews
