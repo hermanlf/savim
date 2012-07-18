@@ -1,0 +1,17 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Initialize directories for swap, undo, backup and views
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if VimVer() > 703
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+    set undodir=~/.vim/.vimundo
+    set backupdir=$HOME\\.vim\\.vimbackup\\
+    set directory=$HOME\\.vim\\.vimswap\\
+    set viewdir=$HOME\\.vim\\.vimviews\\
+else
+    set backupdir=$HOME\\.vim\\.vimbackup\\
+    set directory=$HOME\\.vim\\.vimswap\\
+    set viewdir=$HOME\\.vim\\.vimviews\\
+endif    
