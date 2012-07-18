@@ -60,10 +60,8 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Initialize directories for swap, undo, backup and views
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source $HOME/.vim/vim.dirs
 
-if filereadable("$HOME/.vim/.vim.dirs")
-    so $HOME/.vim/vim.dirs
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General

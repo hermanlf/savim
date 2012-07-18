@@ -16,6 +16,11 @@ if [[ -f "$symlink" && ! -L "$symlink" ]]; then
     rm $HOME/.vimrc
 fi
 
+if [ -f "$vimuseonly/vim.dirs" ]; then
+    rm $vimuseonly/vim.dirs
+    cp $vimuseonly/default.dirs $vimuseonly/vim.dirs
+fi
+
 if [ -h "$symlink" ]; then
     echo "Symlink exists"
 

@@ -1,5 +1,6 @@
 if exist "%userprofile%\.vim\vim.dirs" (
     del "%userprofile%\.vim\vim.dirs"
+    copy default.dirs vim.dirs
 ) else (
     copy default.dirs vim.dirs
 )

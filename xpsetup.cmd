@@ -1,12 +1,14 @@
 if exist "%userprofile%\.vimrc" (
     echo .vimrc already exists
     del "%userprofile%\.vimrc"
+    copy .vimrc "%userprofile%"
 ) else (
     copy .vimrc "%userprofile%"
 )
 
 if exist "%userprofile%\.vim\vim.dirs" (
     del "%userprofile%\.vim\vim.dirs"
+    copy xp.dirs vim.dirs
 ) else (
     copy xp.dirs vim.dirs
 )
