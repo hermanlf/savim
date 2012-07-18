@@ -1,0 +1,8 @@
+To install on Linux run:
+setup.sh
+
+To install on Vista/Windows 7, run the following as administrator:
+win7setup.cmd
+
+To install on Windows XP run:
+xpsetup.cmd
